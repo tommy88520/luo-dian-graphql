@@ -1,0 +1,104 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type AdvancedRule {
+  audition: String
+  auditionType: String
+  biology: String
+  chemical: String
+  chinese: String
+  citizen: String
+  english: String
+  geography: String
+  history: String
+  math: String
+  mathA: String
+  mathB: String
+  physics: String
+  science: String
+  society: String
+}
+
+type BasicRule {
+  chinese: String
+  english: String
+  listening: String
+  mathA: String
+  mathB: String
+  science: String
+  society: String
+}
+
+type LastScore {
+  averageScore: Float
+  multipleScore: Float
+  myScore: Float
+}
+
+type NewScore {
+  averageScore: Float
+  multiple: Float
+  multipleScore: Float
+  myScore: Float
+}
+
+type OrdinaryStudentsAdmissionScore {
+  lastScore: LastScore
+  newScore: NewScore
+}
+
+type PredictArray {
+  advancedRule: AdvancedRule
+  basicRule: BasicRule
+  departmentName: String
+  gap: Float
+  lastYearAdmissions: String
+  national: String
+  ordinaryStudentsAdmissionScore: OrdinaryStudentsAdmissionScore
+  predictLevel: String
+  region: String
+  schoolCode: String
+  schoolName: String
+  thisYearAdmissions: String
+}
+
+input PredictDto {
+  page: Float!
+  range: [String!]!
+
+  """Example field (placeholder)"""
+  school: [String!]!
+  sort: String!
+
+  """Example field (placeholder)"""
+  studentScore: StudentScore!
+}
+
+type PredictResult {
+  results: [PredictArray!]!
+  total: Float
+}
+
+type Query {
+  findSchools(findSchools: PredictDto!): PredictResult!
+}
+
+input StudentScore {
+  auditionType: String!
+  listening: Float!
+  studentAudition: Float!
+  studentBiology: Float!
+  studentChemical: Float!
+  studentChinese: Float!
+  studentCitizen: Float!
+  studentEnglish: Float!
+  studentGeography: Float!
+  studentHistory: Float!
+  studentMath: Float!
+  studentMathA: Float!
+  studentMathB: Float!
+  studentPhysics: Float!
+  studentScience: Float!
+  studentSociety: Float!
+}
